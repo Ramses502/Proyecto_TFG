@@ -1,0 +1,6 @@
+.DS_Store
+# Project exclude paths
+/application/adapter-rest/target/
+/boot/target/
+/domain/target/
+/infrastructure/adapter-database/target/
