@@ -15,7 +15,6 @@ import java.util.stream.Collectors;
 public class UserDBAdapter implements UserDBPort {
 
     private final UserMapper mapper = UserMapper.INSTANCE;
-    private final UserNoGroupsNoExpensesMapper noGroupsNoExpensesMapper = UserNoGroupsNoExpensesMapper.INSTANCE;
 
     private final UserRepository userRepository;
 

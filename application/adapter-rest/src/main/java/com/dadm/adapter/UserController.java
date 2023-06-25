@@ -1,6 +1,5 @@
 package com.dadm.adapter;
 
-import com.dadm.exceptions.LoginException;
 import com.dadm.mapper.UserRestMapper;
 import com.dadm.model.UserDTO;
 import com.dadm.ports.application.UserPort;
@@ -29,20 +28,6 @@ public class UserController {
                .collect(Collectors.toList());
     }
 
-    @GetMapping
-    public UserDTO get(@RequestParam String name) throws LoginException {
-        return mapper.toDTO(userPort.get(name));
-    }
-
-    @GetMapping("/debt_from_group")
-    public Double getDebt(@RequestParam String name, @RequestParam Long groupId) {
-        return userPort.getDebtFromSpecificGroup(name, groupId);
-    }
-
-    @GetMapping("/login")
-    public UserDTO login(@RequestParam String name, @RequestParam String password) throws LoginException {
-        return mapper.toDTO(userPort.login(name, password));
-    }
 
     @PostMapping("/register")
     public void post(@RequestBody UserDTO userDTO){
@@ -52,11 +37,6 @@ public class UserController {
     @PutMapping
     public void put(@RequestBody UserDTO userDTO){
         userPort.updateUser(mapper.toDomain(userDTO));
-    }
-
-    @PutMapping("/pay")
-    public void put(@RequestParam String name, @RequestParam Long groupId, @RequestParam Double money){
-        userPort.pay(name, groupId, money);
     }
 
     @DeleteMapping

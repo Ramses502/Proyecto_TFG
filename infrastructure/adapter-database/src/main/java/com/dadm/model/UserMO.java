@@ -27,10 +27,4 @@ public class UserMO {
 
     @Column(name = "password")
     private String password;
-
-    @OneToMany(mappedBy = "user")
-    private List<UserGroupMO> groups = new ArrayList<UserGroupMO>();
-
-    @ManyToMany(mappedBy = "users")
-    private List<ExpenseMO> expenses;
 }
