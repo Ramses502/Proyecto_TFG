@@ -19,12 +19,14 @@ import java.util.Set;
 @AllArgsConstructor
 @Getter
 @Setter
+@Table(name = "User")
 public class UserMO {
 
     @Id
     @Column(name = "name", length = 50)
     private String name;
-
     @Column(name = "password")
     private String password;
+    @Column(name = "elo")
+    private Integer elo;
 }
