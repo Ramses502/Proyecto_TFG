@@ -17,7 +17,7 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @Table(name = "Evento")
-public class EventoMO {
+public class EventMO {
 
     @Id
     @Column(name = "id")

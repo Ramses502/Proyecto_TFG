@@ -2,55 +2,56 @@ package com.dadm.adapter;
 
 import com.dadm.mapper.*;
 import com.dadm.model.*;
-import com.dadm.ports.infrastructure.UserDBPort;
+import com.dadm.ports.infrastructure.UserDbPort;
 import com.dadm.repositories.UserRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 @Component
-public class UserDBAdapter implements UserDBPort {
+@AllArgsConstructor
+public class UserDbAdapter implements UserDbPort {
 
-    private final UserMapper mapper = UserMapper.INSTANCE;
+    private final UserDbMapper mapper = UserDbMapper.INSTANCE;
 
     private final UserRepository userRepository;
-
-    public UserDBAdapter(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
 
     @Override
     public List<User> get() {
         return userRepository.findAll()
                 .stream()
-                .map(mapper::toDomain)
+                .map(mapper::aDominio)
                 .collect(Collectors.toList());
     }
 
     @Override
     public User get(String name) {
         UserMO userMO = userRepository.getOne(name);
-        return mapper.toDomain(userMO);
+        return mapper.aDominio(userMO);
     }
 
     @Override
     public void upload(User user) {
-        UserMO userMO = mapper.toMO(user);
+        UserMO userMO = mapper.aDb(user);
         userRepository.save(userMO);
     }
 
     @Override
     public void update(User user) {
-        UserMO userMO = mapper.toMO(user);
+        UserMO userMO = mapper.aDb(user);
         userRepository.save(userMO);
     }
 
     @Override
-    public void delete(String name) {
+    public void deleteById(String name) {
         userRepository.deleteById(name);
+    }
+
+    @Override
+    public void delete(User user) {
+        userRepository.delete(mapper.aDb(user));
     }
 
 }

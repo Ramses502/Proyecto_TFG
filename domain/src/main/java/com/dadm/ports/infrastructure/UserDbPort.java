@@ -4,7 +4,7 @@ import com.dadm.model.User;
 
 import java.util.List;
 
-public interface UserDBPort {
+public interface UserDbPort {
 
     List<User> get();
 
@@ -14,5 +14,7 @@ public interface UserDBPort {
 
     void update(User user);
 
-    void delete(String name);
+    void deleteById(String name);
+
+    void delete(User user);
 }

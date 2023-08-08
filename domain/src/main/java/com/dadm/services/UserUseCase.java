@@ -2,7 +2,7 @@ package com.dadm.services;
 
 import com.dadm.model.User;
 import com.dadm.ports.application.UserPort;
-import com.dadm.ports.infrastructure.UserDBPort;
+import com.dadm.ports.infrastructure.UserDbPort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,9 +10,9 @@ import java.util.List;
 @Service
 public class UserUseCase implements UserPort {
 
-    private final UserDBPort userDBPort;
+    private final UserDbPort userDBPort;
 
-    public UserUseCase(UserDBPort userDBPort) {
+    public UserUseCase(UserDbPort userDBPort) {
         this.userDBPort = userDBPort;
     }
 
@@ -38,7 +38,7 @@ public class UserUseCase implements UserPort {
 
     @Override
     public void deleteUser(String name) {
-        userDBPort.delete(name);
+        userDBPort.deleteById(name);
     }
 
 }
