@@ -3,6 +3,7 @@ package com.dadm.adapter;
 import com.dadm.mapper.UserMapper;
 import com.dadm.model.UserDto;
 import com.dadm.ports.application.UserPort;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,15 +11,12 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/user")
+@AllArgsConstructor
 public class UserController {
 
     private final UserMapper mapper = UserMapper.INSTANCE;
-
     private final UserPort userPort;
 
-    public UserController(UserPort userPort) {
-        this.userPort = userPort;
-    }
     @GetMapping("/all")
     public List<UserDto> getAll(){
        return userPort.get()
@@ -39,7 +37,12 @@ public class UserController {
     }
 
     @DeleteMapping
-    public void delete(@RequestParam String name){
-        userPort.deleteUser(name);
+    public void delete(@RequestBody UserDto userDto){
+        userPort.deleteUser(mapper.aDominio(userDto));
+    }
+
+    @DeleteMapping
+    public void deleteById(@RequestParam String name) {
+        userPort.deleteUserById(name);
     }
 }

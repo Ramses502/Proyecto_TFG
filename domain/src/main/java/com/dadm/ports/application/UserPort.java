@@ -14,6 +14,8 @@ public interface UserPort {
 
     void updateUser(User user);
 
-    void deleteUser(String name);
+    void deleteUser(User user);
+
+    void deleteUserById(String name);
 
 }

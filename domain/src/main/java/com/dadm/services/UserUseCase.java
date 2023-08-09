@@ -3,18 +3,16 @@ package com.dadm.services;
 import com.dadm.model.User;
 import com.dadm.ports.application.UserPort;
 import com.dadm.ports.infrastructure.UserDbPort;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class UserUseCase implements UserPort {
 
     private final UserDbPort userDBPort;
-
-    public UserUseCase(UserDbPort userDBPort) {
-        this.userDBPort = userDBPort;
-    }
 
     @Override
     public List<User> get() {
@@ -37,7 +35,12 @@ public class UserUseCase implements UserPort {
     }
 
     @Override
-    public void deleteUser(String name) {
+    public void deleteUser(User user) {
+        userDBPort.delete(user);
+    }
+
+    @Override
+    public void deleteUserById(String name) {
         userDBPort.deleteById(name);
     }
 

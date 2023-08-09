@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 @AllArgsConstructor
@@ -18,31 +19,31 @@ public class EventDbAdapter  implements EventDbPort {
 
     @Override
     public List<Event> getEvents() {
-        return null;
+        return eventRepository.findAll().stream().map(mapper::aDominio).collect(Collectors.toList());
     }
 
     @Override
     public Event getEvent(Long id) {
-        return null;
+        return mapper.aDominio(eventRepository.findById(id).orElseThrow(() -> new RuntimeException("No existe el evento")));
     }
 
     @Override
     public void uploadEvent(Event event) {
-
+        eventRepository.save(mapper.aDb(event));
     }
 
     @Override
     public void updateEvent(Event event) {
-
+        eventRepository.save(mapper.aDb(event));
     }
 
     @Override
     public void deleteEvent(Event event) {
-
+        eventRepository.delete(mapper.aDb(event));
     }
 
     @Override
     public void deleteEventById(Long id) {
-
+        eventRepository.deleteById(id);
     }
 }
