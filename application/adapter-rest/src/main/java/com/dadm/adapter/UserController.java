@@ -26,6 +26,7 @@ public class UserController {
     }
 
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/register")
     public void post(@RequestBody UserDto userDTO){
             userPort.createUser(mapper.aDominio(userDTO));
@@ -41,8 +42,8 @@ public class UserController {
         userPort.deleteUser(mapper.aDominio(userDto));
     }
 
-    @DeleteMapping
-    public void deleteById(@RequestParam String name) {
+    @DeleteMapping("/{name}")
+    public void deleteById(@PathVariable String name) {
         userPort.deleteUserById(name);
     }
 }

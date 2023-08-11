@@ -45,8 +45,8 @@ public class PostController {
         postPort.deletePost(mapper.aDominio(postDto));
     }
 
-    @DeleteMapping
-    public void deletePostById(Long id) {
+    @DeleteMapping("/{id}")
+    public void deletePostById(@PathVariable Long id) {
         postPort.deleteById(id);
     }
 }

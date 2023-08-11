@@ -44,8 +44,8 @@ public class EventController {
         eventPort.deleteEvent(mapper.aDominio(eventDto));
     }
 
-    @DeleteMapping
-    public void deleteEventById(Long id) {
+    @DeleteMapping("/{id}")
+    public void deleteEventById(@PathVariable Long id) {
         eventPort.deleteEventById(id);
     }
 }
