@@ -25,6 +25,21 @@ public class UserController {
                .collect(Collectors.toList());
     }
 
+    @GetMapping
+    public UserDto get(UserDto userDto) {
+        return mapper.aDto(userPort.getUser(mapper.aDominio(userDto)));
+    }
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/login")
+    public UserDto login(@RequestParam String name, @RequestParam String password) {
+        return mapper.aDto(userPort.login(name, password));
+    }
+
+    @GetMapping("/{name}")
+    public UserDto getUser(String name) {
+        return mapper.aDto(userPort.get(name));
+    }
 
     @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/register")

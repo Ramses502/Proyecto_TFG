@@ -10,6 +10,10 @@ public interface UserDbPort {
 
     User get(String name);
 
+    User getUser(User user);
+
+    User login(String name, String password);
+
     void upload(User user);
 
     void update(User user);

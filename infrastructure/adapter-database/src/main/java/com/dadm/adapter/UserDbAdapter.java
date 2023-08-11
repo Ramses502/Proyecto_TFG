@@ -33,6 +33,17 @@ public class UserDbAdapter implements UserDbPort {
     }
 
     @Override
+    public User getUser(User user) {
+        return mapper.aDominio(userRepository.findById(user.getName())
+                .orElseThrow(() -> new RuntimeException("No existe usuario")));
+    }
+
+    @Override
+    public User login(String name, String password) {
+        return mapper.aDominio(userRepository.login(name, password).orElse(new UserMO("", "", 0)));
+    }
+
+    @Override
     public void upload(User user) {
         UserMO userMO = mapper.aDb(user);
         userRepository.save(userMO);

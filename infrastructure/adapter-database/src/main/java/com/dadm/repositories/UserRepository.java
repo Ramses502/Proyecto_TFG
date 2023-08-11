@@ -10,8 +10,12 @@ import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface UserRepository extends JpaRepository<UserMO,String> {
+
+    @Query("SELECT u FROM UserMO u WHERE u.name = :name AND u.password = :pass")
+    Optional<UserMO> login(String name, String pass);
 
 }

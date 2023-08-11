@@ -10,6 +10,10 @@ public interface UserPort {
 
     User get(String name);
 
+    User getUser(User user);
+
+    User login(String name, String password);
+
     void createUser(User user);
 
     void updateUser(User user);
