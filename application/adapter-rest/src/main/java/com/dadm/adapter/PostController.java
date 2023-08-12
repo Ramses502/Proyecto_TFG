@@ -3,7 +3,6 @@ package com.dadm.adapter;
 import com.dadm.mapper.PostMapper;
 import com.dadm.model.PostDto;
 import com.dadm.ports.application.PostPort;
-import com.dadm.ports.infrastructure.PostDbPort;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,6 +17,7 @@ public class PostController {
     private final PostMapper mapper = PostMapper.INSTANCE;
     private final PostPort postPort;
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/all")
     public List<PostDto> getAll() {
         return postPort.getPosts().stream()
@@ -25,26 +25,31 @@ public class PostController {
                 .collect(Collectors.toList());
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping
     public PostDto getPost(Long id) {
         return mapper.aDto(postPort.getPost(id));
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping
     public void uploadPost(PostDto postDto) {
         postPort.uploadPost(mapper.aDominio(postDto));
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @PutMapping
     public void updatePost(PostDto postDto) {
         postPort.updatePost(mapper.aDominio(postDto));
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @DeleteMapping
     public void deletePost(PostDto postDto) {
         postPort.deletePost(mapper.aDominio(postDto));
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @DeleteMapping("/{id}")
     public void deletePostById(@PathVariable Long id) {
         postPort.deleteById(id);

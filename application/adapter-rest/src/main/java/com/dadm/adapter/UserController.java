@@ -25,6 +25,7 @@ public class UserController {
                .collect(Collectors.toList());
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping
     public UserDto get(UserDto userDto) {
         return mapper.aDto(userPort.getUser(mapper.aDominio(userDto)));
@@ -36,6 +37,7 @@ public class UserController {
         return mapper.aDto(userPort.login(name, password));
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/{name}")
     public UserDto getUser(String name) {
         return mapper.aDto(userPort.get(name));
@@ -47,16 +49,19 @@ public class UserController {
             userPort.createUser(mapper.aDominio(userDTO));
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @PutMapping
     public void put(@RequestBody UserDto userDTO){
         userPort.updateUser(mapper.aDominio(userDTO));
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @DeleteMapping
     public void delete(@RequestBody UserDto userDto){
         userPort.deleteUser(mapper.aDominio(userDto));
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @DeleteMapping("/{name}")
     public void deleteById(@PathVariable String name) {
         userPort.deleteUserById(name);
