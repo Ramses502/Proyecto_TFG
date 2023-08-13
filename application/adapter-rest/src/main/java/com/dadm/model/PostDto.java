@@ -17,4 +17,5 @@ public class PostDto {
     private String text;
     private LocalDate date;
     private String picture;
+    private UserDto user;
 }

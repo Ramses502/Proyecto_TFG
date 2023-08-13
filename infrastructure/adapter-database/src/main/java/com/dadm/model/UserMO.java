@@ -29,4 +29,6 @@ public class UserMO {
     private String password;
     @Column(name = "elo")
     private Integer elo;
+    @OneToMany(mappedBy = "userMO", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<PostMO> postsMO = new ArrayList<>();
 }

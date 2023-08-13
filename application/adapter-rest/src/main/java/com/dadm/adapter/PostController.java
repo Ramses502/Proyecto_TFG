@@ -33,7 +33,7 @@ public class PostController {
 
     @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping
-    public void uploadPost(PostDto postDto) {
+    public void uploadPost(@RequestBody PostDto postDto) {
         postPort.uploadPost(mapper.aDominio(postDto));
     }
 

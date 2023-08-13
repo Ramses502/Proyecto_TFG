@@ -1,8 +1,10 @@
 package com.dadm.services;
 
 import com.dadm.model.Post;
+import com.dadm.model.User;
 import com.dadm.ports.application.PostPort;
 import com.dadm.ports.infrastructure.PostDbPort;
+import com.dadm.ports.infrastructure.UserDbPort;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +15,7 @@ import java.util.List;
 public class PostUseCase implements PostPort {
 
     private final PostDbPort postDbPort;
+    private final UserDbPort userDbPort;
 
     @Override
     public List<Post> getPosts() {
@@ -26,6 +29,9 @@ public class PostUseCase implements PostPort {
 
     @Override
     public void uploadPost(Post post) {
+        String userName = post.getUser().getName();
+        User user = userDbPort.get(userName);
+        post.setUser(user);
         postDbPort.uploadPost(post);
     }
 
