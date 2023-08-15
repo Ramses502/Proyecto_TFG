@@ -33,7 +33,7 @@ public class EventController {
 
     @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping
-    public void uploadEvent(EventDto eventDto) {
+    public void uploadEvent(@RequestBody EventDto eventDto) {
         eventPort.uploadEvent(mapper.aDominio(eventDto));
     }
 
