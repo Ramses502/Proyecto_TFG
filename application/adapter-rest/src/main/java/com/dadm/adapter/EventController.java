@@ -27,7 +27,7 @@ public class EventController {
 
     @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping
-    public EventDto getEvent(Long id) {
+    public EventDto getEvent(@RequestParam Long id) {
         return mapper.aDto(eventPort.getEvent(id));
     }
 
@@ -39,13 +39,13 @@ public class EventController {
 
     @CrossOrigin(origins = "http://localhost:4200")
     @PutMapping
-    public void updateEvent(EventDto eventDto) {
+    public void updateEvent(@RequestBody EventDto eventDto) {
         eventPort.updateEvent(mapper.aDominio(eventDto));
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
     @DeleteMapping
-    public void deleteEvent(EventDto eventDto) {
+    public void deleteEvent(@RequestBody EventDto eventDto) {
         eventPort.deleteEvent(mapper.aDominio(eventDto));
     }
 

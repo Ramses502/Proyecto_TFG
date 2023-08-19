@@ -27,7 +27,7 @@ public class PostController {
 
     @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping
-    public PostDto getPost(Long id) {
+    public PostDto getPost(@RequestParam Long id) {
         return mapper.aDto(postPort.getPost(id));
     }
 
@@ -39,13 +39,13 @@ public class PostController {
 
     @CrossOrigin(origins = "http://localhost:4200")
     @PutMapping
-    public void updatePost(PostDto postDto) {
+    public void updatePost(@RequestBody PostDto postDto) {
         postPort.updatePost(mapper.aDominio(postDto));
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
     @DeleteMapping
-    public void deletePost(PostDto postDto) {
+    public void deletePost(@RequestBody PostDto postDto) {
         postPort.deletePost(mapper.aDominio(postDto));
     }
 

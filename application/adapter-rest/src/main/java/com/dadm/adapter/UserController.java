@@ -39,7 +39,7 @@ public class UserController {
 
     @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/{name}")
-    public UserDto getUser(String name) {
+    public UserDto getUser(@PathVariable String name) {
         return mapper.aDto(userPort.get(name));
     }
 
