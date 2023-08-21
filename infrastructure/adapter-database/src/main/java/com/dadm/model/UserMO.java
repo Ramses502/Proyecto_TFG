@@ -31,4 +31,6 @@ public class UserMO {
     private Integer elo;
     @OneToMany(mappedBy = "userMO", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<PostMO> postsMO = new ArrayList<>();
+    @OneToMany(mappedBy = "userMO", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<EventMO> eventsMO = new ArrayList<>();
 }

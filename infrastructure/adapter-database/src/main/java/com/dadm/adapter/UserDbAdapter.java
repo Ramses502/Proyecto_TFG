@@ -40,7 +40,7 @@ public class UserDbAdapter implements UserDbPort {
 
     @Override
     public User login(String name, String password) {
-        return mapper.aDominio(userRepository.login(name, password).orElse(new UserMO("", "", 0, null)));
+        return mapper.aDominio(userRepository.login(name, password).orElse(new UserMO("", "", 0, null, null)));
     }
 
     @Override

@@ -30,4 +30,7 @@ public class EventMO {
     private LocalDate date;
     @Column(name = "capacity")
     private Integer capacity;
+    @ManyToOne
+    @JoinColumn(name = "user_name") // Asume que la columna de la clave foránea se llama "user_name"
+    private UserMO userMO;
 }

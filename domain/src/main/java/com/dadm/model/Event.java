@@ -19,4 +19,5 @@ public class Event {
     private String address;
     private LocalDate date;
     private Integer capacity;
+    private User user;
 }
