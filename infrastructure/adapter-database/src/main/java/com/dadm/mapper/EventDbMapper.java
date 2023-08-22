@@ -11,9 +11,9 @@ public interface EventDbMapper {
 
     EventDbMapper INSTANCE = Mappers.getMapper(EventDbMapper.class);
 
-    @Mapping(source = "userMO", target = "user")
+    @Mapping(source = "usersMO", target = "users")
     Event aDominio(EventMO eventMO);
 
-    @Mapping(source = "user", target = "userMO")
+    @Mapping(source = "users", target = "usersMO")
     EventMO aDb(Event event);
 }

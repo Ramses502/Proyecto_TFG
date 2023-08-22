@@ -54,4 +54,10 @@ public class EventController {
     public void deleteEventById(@PathVariable Long id) {
         eventPort.deleteEventById(id);
     }
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/{userName}")
+    public List<EventDto> getEventsFromUser(@PathVariable String userName) {
+        return eventPort.getEventsFromUser(userName).stream().map(mapper::aDto).collect(Collectors.toList());
+    }
 }

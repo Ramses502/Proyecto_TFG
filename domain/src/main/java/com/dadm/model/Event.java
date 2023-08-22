@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @AllArgsConstructor
 @Data
@@ -19,5 +20,5 @@ public class Event {
     private String address;
     private LocalDate date;
     private Integer capacity;
-    private User user;
+    private List<User> users;
 }

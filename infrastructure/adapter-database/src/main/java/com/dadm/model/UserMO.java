@@ -19,7 +19,7 @@ import java.util.Set;
 @AllArgsConstructor
 @Getter
 @Setter
-@Table(name = "User")
+@Table(name = "Users")
 public class UserMO {
 
     @Id
@@ -31,6 +31,11 @@ public class UserMO {
     private Integer elo;
     @OneToMany(mappedBy = "userMO", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<PostMO> postsMO = new ArrayList<>();
-    @OneToMany(mappedBy = "userMO", cascade = CascadeType.ALL, orphanRemoval = true)
+    @ManyToMany
+    @JoinTable(
+            name = "user_event",
+            joinColumns = @JoinColumn(name = "user_name"),
+            inverseJoinColumns = @JoinColumn(name = "event_id")
+    )
     private List<EventMO> eventsMO = new ArrayList<>();
 }

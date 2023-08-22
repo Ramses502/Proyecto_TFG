@@ -7,6 +7,7 @@ import com.dadm.repositories.EventRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -28,6 +29,7 @@ public class EventDbAdapter  implements EventDbPort {
     }
 
     @Override
+    @Transactional
     public void uploadEvent(Event event) {
         eventRepository.save(mapper.aDb(event));
     }
@@ -45,5 +47,10 @@ public class EventDbAdapter  implements EventDbPort {
     @Override
     public void deleteEventById(Long id) {
         eventRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Event> getEventsFromUser(String userName) {
+        return eventRepository.getEventsFromUser(userName).stream().map(mapper::aDominio).collect(Collectors.toList());
     }
 }
