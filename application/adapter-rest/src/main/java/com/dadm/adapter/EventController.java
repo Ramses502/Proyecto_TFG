@@ -60,4 +60,10 @@ public class EventController {
     public List<EventDto> getEventsFromUser(@PathVariable String userName) {
         return eventPort.getEventsFromUser(userName).stream().map(mapper::aDto).collect(Collectors.toList());
     }
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @PutMapping("/{userName}/{eventId}")
+    public void insertUserToEvent(@PathVariable String userName, @PathVariable Long eventId) {
+        eventPort.insertUserToEvent(userName, eventId);
+    }
 }

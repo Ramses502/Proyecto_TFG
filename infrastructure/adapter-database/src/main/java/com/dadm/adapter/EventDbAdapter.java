@@ -50,7 +50,18 @@ public class EventDbAdapter  implements EventDbPort {
     }
 
     @Override
-    public List<Event> getEventsFromUser(String userName) {
-        return eventRepository.getEventsFromUser(userName).stream().map(mapper::aDominio).collect(Collectors.toList());
+    @Transactional
+    public void insertUserToEvent(String userName, Long eventId) {
+        eventRepository.insertUserInEvent(userName, eventId);
+    }
+
+    @Override
+    public Event getEventFromName(String eventName) {
+        return mapper.aDominio(eventRepository.getEventFromName(eventName));
+    }
+
+    @Override
+    public List<Event> getAllEventsFromUser(String userName) {
+        return eventRepository.getAllEventsFromUser(userName).stream().map(mapper::aDominio).collect(Collectors.toList());
     }
 }

@@ -1,5 +1,6 @@
 package com.dadm.repositories;
 
+import com.dadm.model.EventMO;
 import com.dadm.model.UserMO;
 //import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;

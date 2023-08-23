@@ -9,6 +9,9 @@ public interface EventPort {
     List<Event> getEvents();
     Event getEvent(Long id);
     void uploadEvent(Event event);
+
+    void insertUserToEvent(String userName, Long eventId);
+
     void updateEvent(Event event);
     void deleteEvent(Event event);
     void deleteEventById(Long id);

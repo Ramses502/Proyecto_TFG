@@ -32,6 +32,6 @@ public class EventMO {
     private LocalDate date;
     @Column(name = "capacity")
     private Integer capacity;
-    @ManyToMany(mappedBy = "eventsMO")
-    private List<UserMO> usersMO = new ArrayList<>();
+    @OneToMany(mappedBy = "event")
+    private List<EventUserMO> usersMO = new ArrayList<EventUserMO>();
 }

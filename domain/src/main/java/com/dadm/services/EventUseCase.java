@@ -8,9 +8,7 @@ import com.dadm.ports.infrastructure.UserDbPort;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 @Service
 @AllArgsConstructor
@@ -32,9 +30,16 @@ public class EventUseCase implements EventPort {
     @Override
     public void uploadEvent(Event event) {
         User user = userDbPort.get(event.getUsers().get(0).getName());
-        user.getEvents().add(event);
-        event.setUsers(List.of(user));
         eventDbPort.uploadEvent(event);
+        Event eventGot = eventDbPort.getEventFromName(event.getName());
+        eventDbPort.insertUserToEvent(user.getName(), eventGot.getId());
+    }
+
+    @Override
+    public void insertUserToEvent(String userName, Long eventId) {
+        User user = userDbPort.get(userName);
+        Event eventGot = eventDbPort.getEvent(eventId);
+        eventDbPort.insertUserToEvent(user.getName(), eventGot.getId());
     }
 
     @Override
@@ -54,15 +59,7 @@ public class EventUseCase implements EventPort {
 
     @Override
     public List<Event> getEventsFromUser(String userName) {
-        List<Event> events = eventDbPort.getEventsFromUser(userName);
-        List<Event> eventsResult = new ArrayList<>();
-        for (Event event : events) {
-            for (User user : event.getUsers()) {
-                if (Objects.equals(user.getName(), userName)) {
-                    eventsResult.add(event);
-                }
-            }
-        }
-        return eventsResult;
+        List<Event> events = eventDbPort.getAllEventsFromUser(userName);
+        return events;
     }
 }
