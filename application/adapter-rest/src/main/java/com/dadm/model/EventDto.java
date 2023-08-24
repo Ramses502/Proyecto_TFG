@@ -20,5 +20,6 @@ public class EventDto {
     private String address;
     private LocalDate date;
     private Integer capacity;
+    private Boolean apuntado;
     private List<UserDto> users;
 }

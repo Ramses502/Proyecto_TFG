@@ -60,6 +60,9 @@ public class EventUseCase implements EventPort {
     @Override
     public List<Event> getEventsFromUser(String userName) {
         List<Event> events = eventDbPort.getAllEventsFromUser(userName);
+        for (Event event : events) {
+            event.setApuntado(true);
+        }
         return events;
     }
 }

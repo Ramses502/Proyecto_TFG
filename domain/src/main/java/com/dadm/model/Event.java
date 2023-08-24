@@ -20,5 +20,6 @@ public class Event {
     private String address;
     private LocalDate date;
     private Integer capacity;
+    private Boolean apuntado;
     private List<User> users;
 }
