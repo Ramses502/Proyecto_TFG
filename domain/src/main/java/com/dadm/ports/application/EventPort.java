@@ -11,6 +11,7 @@ public interface EventPort {
     void uploadEvent(Event event);
 
     void insertUserToEvent(String userName, Long eventId);
+    void deleteUserToEvent(String userName, Long eventId);
 
     void updateEvent(Event event);
     void deleteEvent(Event event);

@@ -56,6 +56,12 @@ public class EventDbAdapter  implements EventDbPort {
     }
 
     @Override
+    @Transactional
+    public void deleteUserToEvent(String userName, Long eventId) {
+        eventRepository.deleteUserInEvent(userName, eventId);
+    }
+
+    @Override
     public Event getEventFromName(String eventName) {
         return mapper.aDominio(eventRepository.getEventFromName(eventName));
     }

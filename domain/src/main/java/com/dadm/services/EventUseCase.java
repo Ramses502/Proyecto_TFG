@@ -43,6 +43,11 @@ public class EventUseCase implements EventPort {
     }
 
     @Override
+    public void deleteUserToEvent(String userName, Long eventId) {
+        eventDbPort.deleteUserToEvent(userName, eventId);
+    }
+
+    @Override
     public void updateEvent(Event event) {
         eventDbPort.updateEvent(event);
     }

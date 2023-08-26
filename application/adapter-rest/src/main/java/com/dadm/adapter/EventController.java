@@ -62,8 +62,14 @@ public class EventController {
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
-    @PutMapping("/{userName}/{eventId}")
+    @GetMapping("/{userName}/{eventId}")
     public void insertUserToEvent(@PathVariable String userName, @PathVariable Long eventId) {
         eventPort.insertUserToEvent(userName, eventId);
+    }
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @DeleteMapping("/{userName}/{eventId}")
+    public void deleteUserToEvent(@PathVariable String userName, @PathVariable Long eventId) {
+        eventPort.deleteUserToEvent(userName, eventId);
     }
 }

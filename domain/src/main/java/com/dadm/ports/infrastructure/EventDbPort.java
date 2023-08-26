@@ -14,6 +14,7 @@ public interface EventDbPort {
     void deleteEventById(Long id);
 
     void insertUserToEvent(String userName, Long eventId);
+    void deleteUserToEvent(String userName, Long eventId);
 
     Event getEventFromName(String eventName);
 
