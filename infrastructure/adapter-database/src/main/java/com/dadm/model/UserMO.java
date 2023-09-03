@@ -1,9 +1,5 @@
 package com.dadm.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-//import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,6 +25,8 @@ public class UserMO {
     private String password;
     @Column(name = "elo")
     private Integer elo;
+    @Column(name = "avatar")
+    private String avatar;
     @OneToMany(mappedBy = "userMO", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<PostMO> postsMO = new ArrayList<>();
     @OneToMany(mappedBy = "user")

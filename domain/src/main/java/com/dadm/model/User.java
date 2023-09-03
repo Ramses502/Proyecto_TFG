@@ -13,5 +13,6 @@ public class User {
     private String name;
     private String password;
     private Integer elo;
+    private String avatar;
     private List<Event> events;
 }
