@@ -45,7 +45,9 @@ public class EventDbAdapter  implements EventDbPort {
     }
 
     @Override
+    @Transactional
     public void deleteEventById(Long id) {
+        eventRepository.deleteEvent(id);
         eventRepository.deleteById(id);
     }
 
