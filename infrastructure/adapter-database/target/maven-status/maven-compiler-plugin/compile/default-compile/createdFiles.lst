@@ -1,0 +1,16 @@
+com\dadm\mapper\EventDbMapper.class
+com\dadm\model\EventMO.class
+com\dadm\model\PostMO.class
+com\dadm\repositories\EventRepository.class
+com\dadm\model\EventUserMO.class
+com\dadm\mapper\PostDbMapperImpl.class
+com\dadm\model\UserMO.class
+com\dadm\adapter\PostDbAdapter.class
+com\dadm\repositories\PostRepository.class
+com\dadm\mapper\UserDbMapper.class
+com\dadm\adapter\EventDbAdapter.class
+com\dadm\repositories\UserRepository.class
+com\dadm\mapper\EventDbMapperImpl.class
+com\dadm\mapper\PostDbMapper.class
+com\dadm\adapter\UserDbAdapter.class
+com\dadm\mapper\UserDbMapperImpl.class

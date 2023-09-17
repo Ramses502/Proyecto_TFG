@@ -1,0 +1,13 @@
+C:\Users\Ramsés\Desktop\TFG\Proyecto_TFG\infrastructure\adapter-database\src\main\java\com\dadm\model\EventMO.java
+C:\Users\Ramsés\Desktop\TFG\Proyecto_TFG\infrastructure\adapter-database\src\main\java\com\dadm\model\PostMO.java
+C:\Users\Ramsés\Desktop\TFG\Proyecto_TFG\infrastructure\adapter-database\src\main\java\com\dadm\repositories\EventRepository.java
+C:\Users\Ramsés\Desktop\TFG\Proyecto_TFG\infrastructure\adapter-database\src\main\java\com\dadm\repositories\UserRepository.java
+C:\Users\Ramsés\Desktop\TFG\Proyecto_TFG\infrastructure\adapter-database\src\main\java\com\dadm\model\UserMO.java
+C:\Users\Ramsés\Desktop\TFG\Proyecto_TFG\infrastructure\adapter-database\src\main\java\com\dadm\mapper\UserDbMapper.java
+C:\Users\Ramsés\Desktop\TFG\Proyecto_TFG\infrastructure\adapter-database\src\main\java\com\dadm\adapter\EventDbAdapter.java
+C:\Users\Ramsés\Desktop\TFG\Proyecto_TFG\infrastructure\adapter-database\src\main\java\com\dadm\model\EventUserMO.java
+C:\Users\Ramsés\Desktop\TFG\Proyecto_TFG\infrastructure\adapter-database\src\main\java\com\dadm\adapter\UserDbAdapter.java
+C:\Users\Ramsés\Desktop\TFG\Proyecto_TFG\infrastructure\adapter-database\src\main\java\com\dadm\repositories\PostRepository.java
+C:\Users\Ramsés\Desktop\TFG\Proyecto_TFG\infrastructure\adapter-database\src\main\java\com\dadm\adapter\PostDbAdapter.java
+C:\Users\Ramsés\Desktop\TFG\Proyecto_TFG\infrastructure\adapter-database\src\main\java\com\dadm\mapper\EventDbMapper.java
+C:\Users\Ramsés\Desktop\TFG\Proyecto_TFG\infrastructure\adapter-database\src\main\java\com\dadm\mapper\PostDbMapper.java
